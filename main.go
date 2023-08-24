@@ -36,7 +36,7 @@ func loadJoke() [][]byte {
 	if err != nil {
 		log.Panic("Failed to read jokes.")
 	}
-	jokes := bytes.Split(joke, []byte("\r\n\r\n"))
+	jokes := bytes.Split(joke, []byte("\n\n"))
 	log.Printf("Get %d jokes.", len(jokes))
 	return jokes
 }
@@ -118,7 +118,7 @@ func main() {
 				if err != nil {
 					log.Print(err)
 				}
-				path := fmt.Sprintf("%d.jpg", id)
+				path := fmt.Sprintf("cats/%d.jpg", id)
 				err = r.ToFile(path)
 				if err != nil {
 					log.Print(err)
